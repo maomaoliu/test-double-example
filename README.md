@@ -14,9 +14,9 @@ Chef wants to put vegetables to the Fridge, return true if successed otherwise r
 
 Fridge can store objects but it will throw exception if it is full.
 
-SUT - `Chef`
+SUT - [Chef](https://github.com/maomaoliu/test-double-example/blob/main/src/main/java/testdouble/Chef.java)
 
-DOC - `Fridge`
+DOC - [Fridge](https://github.com/maomaoliu/test-double-example/blob/main/src/main/java/testdouble/Fridge.java)
 
 ### Scenario 1
 
