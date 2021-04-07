@@ -2,6 +2,8 @@ package testdouble;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.verify;
 
@@ -19,8 +21,10 @@ public class ChefTestsMockFridge {
         doNothing().when(mockFridge).put("cabbage", "A big cabbage.");
         Chef chef = new Chef(mockFridge);
 
-        chef.storeVeg("cabbage", "A big cabbage.");
+        boolean isStored = chef.storeVeg("cabbage", "A big cabbage.");
 
+        // 这里是状态验证
+        assertTrue(isStored);
         // 这里是行为验证
         verify(mockFridge).close();
     }
@@ -32,8 +36,11 @@ public class ChefTestsMockFridge {
         doThrow(new FridgeFullException()).when(mockFridge).put("cabbage", "A big cabbage.");
         Chef chef = new Chef(mockFridge);
 
-        chef.storeVeg("cabbage", "A big cabbage.");
+        boolean isStored = chef.storeVeg("cabbage", "A big cabbage.");
 
+        // 这里是状态验证
+        assertFalse(isStored);
+        // 这里是行为验证
         verify(mockFridge).close();
     }
 
